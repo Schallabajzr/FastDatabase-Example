@@ -42,14 +42,12 @@ I recommend starting target/classes/si/benchmark/database/ParallelStream.class
 ```
 
 # BatchStreamReader (si.benchmark.database.BatchStreamReader)
-
 ```shell script
 15:22:09.671 [main] WARN  si.benchmark.database.BatchStreamReader - Min date_insert 2021-03-14 13:59:38.318545
 15:22:09.700 [main] WARN  si.benchmark.database.BatchStreamReader - Max date_insert 2021-03-14 15:21:02.075079
 ```
 
 # BatchStreamReaderV2 (si.benchmark.database.BatchStreamReaderV2)
-
 ```shell script
 Didn't close threads in 5 seconds
 Exception in thread "main" java.lang.InternalError: Executor encountered a problem closing

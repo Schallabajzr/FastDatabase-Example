@@ -14,15 +14,6 @@ import static java.util.Spliterator.ORDERED;
  * https://stackoverflow.com/questions/30641383/java-8-stream-with-batch-processing/31642381
  */
 public class BatchingIterator<T> implements Iterator<List<T>> {
-    private final int batchSize;
-    private final Iterator<T> sourceIterator;
-    private List<T> currentBatch;
-
-    public BatchingIterator(Iterator<T> sourceIterator, int batchSize) {
-        this.batchSize = batchSize;
-        this.sourceIterator = sourceIterator;
-    }
-
     /**
      * Given a stream, convert it to a stream of batches no greater than the
      * batchSize.
@@ -40,6 +31,15 @@ public class BatchingIterator<T> implements Iterator<List<T>> {
         return StreamSupport.stream(
                 Spliterators.spliteratorUnknownSize(iterator, ORDERED),
                 false);
+    }
+
+    private final int batchSize;
+    private final Iterator<T> sourceIterator;
+    private List<T> currentBatch;
+
+    public BatchingIterator(Iterator<T> sourceIterator, int batchSize) {
+        this.batchSize = batchSize;
+        this.sourceIterator = sourceIterator;
     }
 
     @Override
